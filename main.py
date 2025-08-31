@@ -3,7 +3,7 @@ import numpy as np
 
 from src.environment import make_env, make_env_human
 from src.train import train, retrain
-from src.evaluate import evaluate
+from src.evaluate import evaluate, evaluate_agent, success_rate
 from src.utils import plot_rewards, save_q_table, load_q_table
 from src.agent import QLearningAgent
 
@@ -35,6 +35,8 @@ def main():
 
     # --- Evaluate agent ---
     print("[INFO] Starting evaluation...")
+    evaluate_agent(env, agent)
+    success_rate(env, agent)
     evaluate(env_test, agent)
 
 if __name__ == "__main__":
